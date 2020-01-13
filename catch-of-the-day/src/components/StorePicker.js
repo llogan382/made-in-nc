@@ -3,25 +3,32 @@ import { getFunName } from '../helpers';
 
 //every class needs at least one method, called "RENDER"
 class StorePicker extends React.Component {
+    myInput = React.createRef();
 
     // When button is clicked, log the info
-    handleClick = (e) => {
+    goToStore = (e) => {
+        // 1. Prevent form from submitting
         e.preventDefault();
-        console.log(e);
+
+        // 2. Get text from input
+        console.log(this.myInput.current.value)
+        // 3. change page url to /store/whateer-they-entered
     }
 
     render() {
         return (
-            <form className="store-selector">
+            <form className="store-selector" onSubmit={this.goToStore}>
                 <h2>Please enter a store name</h2>
 
-                {/* Button events need to be added in-line */}
-                <button onClick={this.handleClick}>Button</button>
+                {/* Button events need to be added in-line. if you put parenthesis on the end, it will call function when the component mounts, rather than when it is clicked */}
 
-                <input type="text" required placeholder="Store Name"
+                <input
+                    type="text"
+                    required placeholder="Store Name"
+
                     // Values on input need to be connected to state.
                     defaultValue={getFunName()}
-
+                    ref={this.myInput}
 
 
                 />
