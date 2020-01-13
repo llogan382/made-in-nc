@@ -5,7 +5,6 @@ import { getFunName } from '../helpers';
 class StorePicker extends React.Component {
     myInput = React.createRef();
 
-
     // Use Arraow Functions so you don't have to use the constructor methods
     goToStore = (e) => {
         // 1. Prevent form from submitting
