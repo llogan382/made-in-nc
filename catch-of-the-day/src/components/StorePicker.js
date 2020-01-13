@@ -3,15 +3,10 @@ import { getFunName } from '../helpers';
 
 //every class needs at least one method, called "RENDER"
 class StorePicker extends React.Component {
-
-    // bind info using constructor
-    constructor() {
-        super();
-        this.goToStore = this.goToStore.bind(this);
-    }
     myInput = React.createRef();
 
-    // When button is clicked, log the info
+
+    // Use Arraow Functions so you don't have to use the constructor methods
     goToStore = (e) => {
         // 1. Prevent form from submitting
         e.preventDefault();
