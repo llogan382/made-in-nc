@@ -6,6 +6,13 @@ import Order from './Order';
 
 //every class needs at least one method, called "RENDER"
 class App extends React.Component {
+
+    // Instead of constructor method, we are using a property
+    state = {
+        fishes: {},
+        order: {}
+    };
+
     render() {
         return (
             <div className="catch-of-the-day">
