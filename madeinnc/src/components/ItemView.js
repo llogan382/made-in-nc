@@ -1,30 +1,35 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 //every class needs at least one method, called "RENDER"
 class ItemView extends React.Component {
     componentDidMount() {
-        // const { itemSlug } = this.props.match.params
+        // const { itemSlug } = this.props.details.match.params
 
         this.setState()
     }
+
     render() {
-        const { itemName, image, location, madeBy, category, price, storeName, storeSlug, itemSlug } = this.props.location.state.itemInfo
+
         return (
             <div>
 
-                <img src={image} />
-                <h2>{itemName}</h2>
-                <p>{itemName}</p>
-                <p>{location}</p>
-                <p>{madeBy}</p>
-                <p>{category}</p>
-                <p>{price}</p>
-                <p>{storeName}</p>
-                <p>{storeSlug}</p>
+                <img src={this.props.details.image} />
+                <h2>{this.props.details.itemName}</h2>
+                <p>{this.props.details.itemName}</p>
+                <p>{this.props.details.location}</p>
+                <p>{this.props.details.madeBy}</p>
+                <p>{this.props.details.category}</p>
+                <p>{this.props.details.price}</p>
+                <p>{this.props.details.storeName}</p>
+                <Link to={`${this.props.details.storeSlug}`}>
+                    <p>{this.props.details.storeSlug}</p>
+                </Link>
 
 
 
-                Hello!</div>
+
+                Hello!</div >
 
         )
     }
