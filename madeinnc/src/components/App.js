@@ -15,7 +15,7 @@ import {
   useRouteMatch,
   useParams
 } from "react-router-dom";
-import ItemView from './ItemView';
+import SingleView from './SingleView';
 
 
 class App extends React.Component {
@@ -38,8 +38,8 @@ class App extends React.Component {
                 details={this.state.items.sampleItems} isAuthed={true} />}
             >
             </Route>
-            <Route path="/:storeslug/:itemSlug"
-              render={(props) => <ItemView
+            <Route exact path="/:storeslug/:itemSlug"
+              render={(props) => <SingleView
                 item={props.match.params}
                 itemSlug={props.match.params}
                 details={this.state.items.sampleItems} isAuthed={true} />}
