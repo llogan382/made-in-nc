@@ -15,7 +15,6 @@ Price
 
 const sampleItems = {
 
-
     item1: {
         "itemName": "Dream Catcher",
         "itemSlug": "dream-catcher",
@@ -59,8 +58,6 @@ const sampleItems = {
         "storeName": "She's Crafty",
         "storeSlug": "shes-crafty",
         "lastEdit": 1579649199298,
-
-
 
 
     },

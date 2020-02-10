@@ -12,7 +12,7 @@ class AllItems extends React.Component {
     render() {
 
         const details = this.props.details;
-
+        const firestoreData = this.props.firebaseData;
 
         return (
             <div>
@@ -22,6 +22,7 @@ class AllItems extends React.Component {
                             key={key}
                             index={key}
                             details={details[key]}
+                            firestoreData={firestoreData}
                         />
                 )
                 }

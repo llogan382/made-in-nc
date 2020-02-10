@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import EditItemForm from './EditItemForm';
 
 //every class needs at least one method, called "RENDER"
 class ItemView extends React.Component {
@@ -13,7 +14,6 @@ class ItemView extends React.Component {
 
 
     render() {
-
         return (
             <div>
 
@@ -21,7 +21,6 @@ class ItemView extends React.Component {
                     <img src={this.props.details.image} />
                 </Link>
                 <h2>{this.props.details.itemName}</h2>
-                <p>{this.props.details.itemName}</p>
                 <p>{this.props.details.location}</p>
                 <p>{this.props.details.madeBy}</p>
                 <p>{this.props.details.category}</p>
@@ -31,10 +30,12 @@ class ItemView extends React.Component {
                     <p>{this.props.details.storeSlug}</p>
                 </Link>
 
+                <EditItemForm
+                    details={this.props.details}
+                />
 
 
-
-                Hello!</div >
+                Hello!</div>
 
         )
     }

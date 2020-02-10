@@ -43,6 +43,7 @@ class StoreView extends React.Component {
                             index={key}
                             details={this.filterStoreItems()[key]}
                         />
+
                 )
                 }
             </div>

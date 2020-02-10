@@ -3,7 +3,7 @@ import React from 'react';
 import AllItems from './AllItems';
 import sampleItems from './sampleItems';
 import StoreView from './StoreView';
-import base from './base';
+import db from './base';
 
 
 
@@ -22,30 +22,32 @@ class App extends React.Component {
     items: { sampleItems }
   };
 
-  componentDidMount() {
-    base.collection("items").doc("item1").set({
-      details: {
-        "itemName": "Dream Catcher",
-        "itemSlug": "dream-catcher",
-        "image": "https://i.picsum.photos/id/104/400/500.jpg",
-        "location": "Forsyth County",
-        "madeBy": "Alex Jones",
-        "category": "crafts",
-        "price": 17.99,
-        "storeID": 1,
-        "storeName": "She's Crafty",
-        "storeSlug": "shes-crafty",
-        "lastEdit": 1579659189298,
 
-      }
-    })
-      .then(function (docRef) {
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function (error) {
-        console.error("Error adding document: ", error);
+
+
+
+  componentDidMount() {
+    db.collection("items")
+      .get()
+      .then(querySnapshot => {
+        // console.log(querySnapshot.docs);
+        const data = querySnapshot.docs.map(doc => doc.data());
+        console.log(data);
+
+        this.setState({ data });
+        // console.log(this.state.items.sampleItems); // array of cities objects
       });
+    // .then(function (docRef) {
+    //   console.log("Document written with ID: ", docRef.id);
+    // })
+    // .catch(function (error) {
+    //   console.error("Error adding document: ", error);
+    // });
+    // this.setState({ items: dbState })
+    // console.log(this.state.items.sampleItems);
+    console.log(this.state);
   }
+
   render() {
 
     return (
@@ -70,6 +72,7 @@ class App extends React.Component {
             <Route exact path="/">
               <AllItems
                 details={this.state.items.sampleItems}
+                firebaseData={this.state.data}
               />
             </Route>
           </Switch>
@@ -80,5 +83,6 @@ class App extends React.Component {
 }
 
 export default App;
+
 
 

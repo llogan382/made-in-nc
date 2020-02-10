@@ -2,14 +2,14 @@
 
 import firebase from 'firebase';
 
-firebase.initializeApp({
+const firebaseApp = firebase.initializeApp({
     apiKey: "AIzaSyDwxMsWF8pD4GTTWI93zGjPDECJX1QuVXU",
     authDomain: "madeinnc-test.firebaseapp.com",
     databaseURL: "https://madeinnc-test.firebaseio.com",
     projectId: "madeinnc-test"
 
 });
-const base = firebase.firestore();
+const db = firebaseApp.firestore();
 
 // const firebaseApp = firebase.initializeApp({
 //     apiKey: "AIzaSyDwxMsWF8pD4GTTWI93zGjPDECJX1QuVXU",
@@ -22,4 +22,4 @@ const base = firebase.firestore();
 // const base = Rebase.createClass(firebaseApp.database())
 
 
-export default base;
+export default db;
