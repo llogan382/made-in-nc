@@ -3,10 +3,10 @@
 import firebase from 'firebase';
 
 const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyDwxMsWF8pD4GTTWI93zGjPDECJX1QuVXU",
-    authDomain: "madeinnc-test.firebaseapp.com",
-    databaseURL: "https://madeinnc-test.firebaseio.com",
-    projectId: "madeinnc-test"
+    // apiKey: "AIzaSyDwxMsWF8pD4GTTWI93zGjPDECJX1QuVXU",
+    // authDomain: "madeinnc-test.firebaseapp.com",
+    // databaseURL: "https://madeinnc-test.firebaseio.com",
+    // projectId: "madeinnc-test"
 
 });
 const db = firebaseApp.firestore();

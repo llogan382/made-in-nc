@@ -3,7 +3,7 @@ import React from 'react';
 import AllItems from './AllItems';
 import sampleItems from './sampleItems';
 import StoreView from './StoreView';
-import db from './base';
+// import db from './base';
 
 
 
@@ -27,16 +27,15 @@ class App extends React.Component {
 
 
   componentDidMount() {
-    db.collection("items")
-      .get()
-      .then(querySnapshot => {
-        // console.log(querySnapshot.docs);
-        const data = querySnapshot.docs.map(doc => doc.data());
-        console.log(data);
+    // db.collection("items")
+    //   .get()
+    //   .then(querySnapshot => {
+    //     // console.log(querySnapshot.docs);
+    //     const data = querySnapshot.docs.map(doc => doc.data());
 
-        this.setState({ data });
-        // console.log(this.state.items.sampleItems); // array of cities objects
-      });
+    //     this.setState({ data });
+    //     // console.log(this.state.items.sampleItems); // array of cities objects
+    //   });
     // .then(function (docRef) {
     //   console.log("Document written with ID: ", docRef.id);
     // })
@@ -45,7 +44,6 @@ class App extends React.Component {
     // });
     // this.setState({ items: dbState })
     // console.log(this.state.items.sampleItems);
-    console.log(this.state);
   }
 
   render() {

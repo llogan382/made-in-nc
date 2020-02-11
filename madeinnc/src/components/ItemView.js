@@ -32,6 +32,7 @@ class ItemView extends React.Component {
 
                 <EditItemForm
                     details={this.props.details}
+                    key={this.props.index}
                 />
 
 
