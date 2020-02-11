@@ -7,7 +7,15 @@ class EditItemForm extends React.Component {
 
     // Run the function on click.
     handleChange = (event) => {
-        console.log(event.currentTarget.name, event.currentTarget.value)
+        event.preventDefault();
+
+        const updatedItem = {
+            ...this.props.details,
+
+            [event.currentTarget.name]: event.currentTarget.value
+        };
+        this.props.updateItem(this.props.index, updatedItem)
+
     }
     render() {
         return (

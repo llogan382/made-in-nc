@@ -10,18 +10,22 @@ class StoreView extends React.Component {
 
 
     filterStoreItems = props => {
-        const storeslug = this.props.storeslug.storeslug;
+        // 1. Filter store items while preserving KEYS
 
-        const allItems = Object.values(this.props.details);
-        // Go through an object, filter by Store
-        // Get object WHERE object.key=== Object.value =slug
-        const storeItems = allItems.filter(item => {
-            if (item.storeSlug === storeslug) {
-                return true;
+        const allItems = { ...this.props.details };
+        const filteredItems = [];
+        const storeItems = Object.entries(allItems).forEach((item) => {
+            if (item[1].storeSlug === this.props.storeslug.storeslug) {
+                // console.log(item)
+                filteredItems.push(item)
             }
-        });
+        })
+        return Object.fromEntries(filteredItems);
+        // console.log(Object.fromEntries(filteredItems))
 
-        return storeItems;
+
+
+
     };
 
 
@@ -36,12 +40,15 @@ class StoreView extends React.Component {
         return (
 
             <div>
+                hello
                 {Object.keys(this.filterStoreItems()).map(
                     key =>
                         <ItemView
                             key={key}
                             index={key}
                             details={this.filterStoreItems()[key]}
+                            updateItem={this.props.updateItem}
+
                         />
 
                 )

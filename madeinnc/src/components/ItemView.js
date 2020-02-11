@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import EditItemForm from './EditItemForm';
-
 //every class needs at least one method, called "RENDER"
 class ItemView extends React.Component {
 
@@ -33,6 +32,9 @@ class ItemView extends React.Component {
                 <EditItemForm
                     details={this.props.details}
                     key={this.props.index}
+                    index={this.props.index}
+                    updateItem={this.props.updateItem}
+
                 />
 
 

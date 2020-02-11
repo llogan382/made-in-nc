@@ -11,6 +11,8 @@ class ItemView extends React.Component {
         this.setState()
     }
 
+
+
     filterItem = props => {
 
         const itemslug = this.props.item.itemSlug;
