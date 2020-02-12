@@ -26,48 +26,29 @@ class App extends React.Component {
 
 
 
-  componentDidMount() {
-    // db.collection("items")
-    //   .get()
-    //   .then(querySnapshot => {
-    //     // console.log(querySnapshot.docs);
-    //     const data = querySnapshot.docs.map(doc => doc.data());
-
-    //     this.setState({ data });
-    //     // console.log(this.state.items.items); // array of cities objects
-    //   });
-    // .then(function (docRef) {
-    //   console.log("Document written with ID: ", docRef.id);
-    // })
-    // .catch(function (error) {
-    //   console.error("Error adding document: ", error);
-    // });
-    // this.setState({ items: dbState })
-    // console.log(this.state.items.items);
-  }
 
   // Load fishes button. Created here, passed to Inventory
   loadSampleItems = () => {
     // console.log('hi')
     // Update STATE when clicked; update it to SAMPLEFISHES
-    this.setState({ items: { items } });
+    this.setState({ items });
   }
 
 
   updateItem = (key, updatedItem) => {
     // 1. take a copy of current state
-    const items = { ...this.state.items.items }; //all items
+    const item = { ...this.state.items.items }; //all items
 
     // 2. update the state
-    items[key] = updatedItem;
+    item[key] = updatedItem;
+
     // 3. set that to state
-    // console.log(this.state.items.items) // OBJECT
-    // console.log(this.state.items) OBJECT
-    // console.log(key) "item2"
-    this.setState({ items });
+    this.setState({ items: item });
   }
 
   render() {
+
+
 
     return (
       <Router>
@@ -76,7 +57,7 @@ class App extends React.Component {
             <Route exact path="/:storeslug"
               render={(props) => <StoreView
                 storeslug={props.match.params}
-                details={this.state.items.items} isAuthed={true}
+                details={this.state.items} isAuthed={true}
                 updateItem={this.updateItem}
 
               />}
@@ -86,7 +67,7 @@ class App extends React.Component {
               render={(props) => <SingleView
                 item={props.match.params}
                 itemSlug={props.match.params}
-                details={this.state.items.items} isAuthed={true}
+                details={this.state.items} isAuthed={true}
               />
 
               }
@@ -95,8 +76,7 @@ class App extends React.Component {
             </Route>
             <Route exact path="/">
               <AllItems
-                details={this.state.items.items}
-                firebaseData={this.state.data}
+                details={this.state.items}
                 loadSampleItems={this.loadSampleItems}
               />
             </Route>

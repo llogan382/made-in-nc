@@ -14,7 +14,7 @@ class AllItems extends React.Component {
         const details = this.props.details;
         const firestoreData = this.props.firebaseData;
         let button;
-        if (!details) {
+        if (Object.entries(details).length === 0) {
             button = <button onClick={this.props.loadSampleItems}>Load Sample Items</button>;
         } else {
             button = Object.keys(details).map(

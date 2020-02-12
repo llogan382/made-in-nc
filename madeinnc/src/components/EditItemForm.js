@@ -6,17 +6,19 @@ class EditItemForm extends React.Component {
 
 
     // Run the function on click.
-    handleChange = (event) => {
-        event.preventDefault();
+    handleChange = event => {
 
+        // Take a copy of the fish
         const updatedItem = {
             ...this.props.details,
 
             [event.currentTarget.name]: event.currentTarget.value
         };
+
         this.props.updateItem(this.props.index, updatedItem)
 
-    }
+    };
+
     render() {
         return (
             <div className="itemEdit">

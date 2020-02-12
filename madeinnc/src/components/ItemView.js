@@ -5,12 +5,6 @@ import EditItemForm from './EditItemForm';
 class ItemView extends React.Component {
 
 
-    componentDidMount() {
-        // const { itemSlug } = this.props.details.match.params
-
-        this.setState()
-    }
-
 
     render() {
         return (

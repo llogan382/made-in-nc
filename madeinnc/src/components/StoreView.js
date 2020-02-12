@@ -16,23 +16,13 @@ class StoreView extends React.Component {
         const filteredItems = [];
         const storeItems = Object.entries(allItems).forEach((item) => {
             if (item[1].storeSlug === this.props.storeslug.storeslug) {
-                // console.log(item)
                 filteredItems.push(item)
             }
         })
         return Object.fromEntries(filteredItems);
-        // console.log(Object.fromEntries(filteredItems))
-
-
-
 
     };
 
-
-    componentDidMount() {
-        // const { itemSlug } = this.props.match.params
-        this.setState()
-    }
 
 
     render() {
@@ -40,7 +30,7 @@ class StoreView extends React.Component {
         return (
 
             <div>
-                hello
+                hello Storeview
                 {Object.keys(this.filterStoreItems()).map(
                     key =>
                         <ItemView
@@ -48,7 +38,6 @@ class StoreView extends React.Component {
                             index={key}
                             details={this.filterStoreItems()[key]}
                             updateItem={this.props.updateItem}
-
                         />
 
                 )
