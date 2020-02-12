@@ -13,7 +13,7 @@ Price
 
 
 
-const sampleItems = {
+const items = {
 
     item1: {
         "itemName": "Dream Catcher",
@@ -159,4 +159,4 @@ const sampleItems = {
 };
 
 
-export default sampleItems;
+export default items;

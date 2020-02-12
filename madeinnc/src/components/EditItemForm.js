@@ -6,32 +6,30 @@ class EditItemForm extends React.Component {
 
 
     // Run the function on click.
-    handleChange = (event) => {
+    handleChange = event => {
 
-        // // update the fish
-        // // 1. Take a copy of the fish.
-        // const updatedFish = {
-        //     ...this.props.fish,
+        // Take a copy of the fish
+        const updatedItem = {
+            ...this.props.details,
 
-        //     // use the new es6 feature, "computed module names"
-        //     [event.currentTarget.name]: event.currentTarget.value
-        // };
+            [event.currentTarget.name]: event.currentTarget.value
+        };
 
-        // // run the function that is passed in; pass in the INDEX, passed through props, and pass in the updated fish, a key/value pair
-        // this.props.updateFish(this.props.index, updatedFish)
+        this.props.updateItem(this.props.index, updatedItem)
 
-    }
+    };
+
     render() {
         return (
             <div className="itemEdit">
-                <input type="text" name="itemName" value={this.props.details.itemName} />
-                <input type="text" name="category" value={this.props.details.category} />
-                <input type="text" name="price" value={this.props.details.price} />
-                <select type="text" name="status" value={this.props.details.inventory}>
+                <input type="text" onChange={this.handleChange} name="itemName" value={this.props.details.itemName} />
+                <input type="text" onChange={this.handleChange} name="category" value={this.props.details.category} />
+                <input type="text" onChange={this.handleChange} name="price" value={this.props.details.price} />
+                <select type="text" onChange={this.handleChange} name="status" value={this.props.details.inventory}>
                     <option value="available">available!</option>
                     <option value="unavailable">unavailable!</option>
                 </select>
-                <textarea name="desc" />
+                <textarea onChange={this.handleChange} name="desc" />
 
 
 

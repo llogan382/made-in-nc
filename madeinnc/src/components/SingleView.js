@@ -11,6 +11,8 @@ class ItemView extends React.Component {
         this.setState()
     }
 
+
+
     filterItem = props => {
 
         const itemslug = this.props.item.itemSlug;
@@ -29,7 +31,6 @@ class ItemView extends React.Component {
 
     render() {
         const itemDetails = this.filterItem()[0]
-        console.log(itemDetails)
         return (
             <div>
                 <img src={itemDetails.image} alt="" />

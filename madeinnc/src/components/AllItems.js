@@ -13,22 +13,30 @@ class AllItems extends React.Component {
 
         const details = this.props.details;
         const firestoreData = this.props.firebaseData;
+        let button;
+        if (Object.entries(details).length === 0) {
+            button = <button onClick={this.props.loadSampleItems}>Load Sample Items</button>;
+        } else {
+            button = Object.keys(details).map(
+                key =>
+                    <ItemView
+                        key={key}
+                        index={key}
+                        details={details[key]}
+                        firestoreData={firestoreData}
+                    />
+            )
+        }
 
         return (
             <div>
-                {Object.keys(details).map(
-                    key =>
-                        <ItemView
-                            key={key}
-                            index={key}
-                            details={details[key]}
-                            firestoreData={firestoreData}
-                        />
-                )
-                }
+                {button}
                 Hello
-           </div>
+       </div>
         );
+
+
+
     }
 }
 
