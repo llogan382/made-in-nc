@@ -28,7 +28,7 @@ class ItemView extends React.Component {
                     key={this.props.index}
                     index={this.props.index}
                     updateItem={this.props.updateItem}
-
+                    storeSlug={this.props.storeslug}
                 />
 
 
