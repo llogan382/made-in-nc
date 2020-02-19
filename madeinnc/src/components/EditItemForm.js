@@ -23,12 +23,11 @@ class EditItemForm extends React.Component {
 
     render() {
         let editForm;
-        if (this.props.storeslug) {
+        if (!this.props.storeSlug) {
             editForm = <div></div>
         } else {
             editForm =
                 <div>
-
                     <input type="text" onChange={this.handleChange} name="itemName" value={this.props.details.itemName} />
                     <input type="text" onChange={this.handleChange} name="category" value={this.props.details.category} />
                     <input type="text" onChange={this.handleChange} name="price" value={this.props.details.price} />
@@ -42,7 +41,7 @@ class EditItemForm extends React.Component {
         }
         return (
             <div className="itemEdit">
-
+                {editForm}
 
             </div>
         )
