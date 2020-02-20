@@ -44,13 +44,18 @@ class App extends React.Component {
 
   // Load fishes button. Created here, passed to Inventory
   loadSampleItems = () => {
-    // console.log('hi')
+
     // Update STATE when clicked; update it to SAMPLEFISHES
     this.setState({ items });
   }
 
 
   updateItem = (key, updatedItem) => {
+    db.collection("items")
+      .doc(key)
+      .set(updatedItem)
+
+
     // 1. take a copy of current state
     const items = { ...this.state.items }; //all items
 
