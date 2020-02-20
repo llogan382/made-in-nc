@@ -3,7 +3,7 @@ import React from 'react';
 import AllItems from './AllItems';
 import items from './sampleItems';
 import StoreView from './StoreView';
-// import db from './base';
+import db from './base';
 
 
 
@@ -25,6 +25,21 @@ class App extends React.Component {
 
 
 
+  // componentDidMount() {
+  //   this.setState();
+
+  //   // console.log({ data })
+  //   // db.collection("items")
+  //   //   .doc(data.uid.toString())
+  //   //   .set(data)
+  //   //   .then(() => {
+  //   //     console.log("Success!")
+  //   //   })
+  //   //   .catch(error => {
+  //   //     console.log("Failed!")
+  //   //   });
+  // }
+
 
 
   // Load fishes button. Created here, passed to Inventory
@@ -37,13 +52,13 @@ class App extends React.Component {
 
   updateItem = (key, updatedItem) => {
     // 1. take a copy of current state
-    const item = { ...this.state.items.items }; //all items
+    const items = { ...this.state.items }; //all items
 
     // 2. update the state
-    item[key] = updatedItem;
+    items[key] = updatedItem; //item is the Object Key
 
     // 3. set that to state
-    this.setState({ items: item });
+    this.setState({ items });
   }
 
   render() {

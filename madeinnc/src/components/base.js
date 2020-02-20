@@ -18,7 +18,7 @@ const db = firebaseApp.firestore();
 
 // });
 
-// this will return the database we have
+// // this will return the database we have
 // const base = Rebase.createClass(firebaseApp.database())
 
 
